@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+ th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home|page</title>
+	<style type="text/css">
+	
+	.card-body{
+	  background: lightblue;
+	}
+	
+	</style>
+</head>
+<body>
+<section>
+	<form action="#" th:object="${contact}" enctype="multipart/form-data" method="post" th:action="@{/user/process_contact}">
+	
+	<div class="card text-info">
+	<h1 class="text-center py-2">Add contact</h1>
+	<div class="card-body">
+	 <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="col-md-8 offset-md-2">
+    <div class="col">
+      <div class="form-outline">
+       <label class="form-label" for="form6Example1">First name</label>
+        <input required name="name" type="text" id="form6Example1" class="form-control" placeholder="Enter hear" />
+       
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+      <label class="form-label" for="form6Example2">Nick name</label>
+        <input name="secondName" type="text" id="form6Example2" class="form-control" placeholder="Enter hear" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-8 offset-md-2">
+    <div class="col">
+      <div class="form-outline">
+       <label class="form-label" for="form6Example1">work</label>
+        <input name="work" type="text" id="form6Example1" class="form-control" placeholder="Enter hear" />
+       
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+      <label class="form-label" for="form6Example2">email</label>
+        <input required name="email" type="email" id="form6Example2" class="form-control" placeholder="Enter hear" />
+      </div>
+    </div>
+  </div>
+  
+  
+   <div class="col-md-8 offset-md-2">
+    <div class="col">
+      <div class="form-outline">
+       <label class="form-label" for="form6Example1">phone</label>
+        <input required min="10" name="phone" type="number" id="form6Example1" class="form-control" placeholder="Enter hear" />
+       
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+      <label class="form-label" for="form6Example2">image</label>
+        <input name="profileImage" type="file" id="form6Example2" class="form-control" placeholder="Enter hear" />
+      </div>
+    </div>
+  </div>
+  
+   <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="col-md-8 offset-md-2">
+    <div class="col">
+      <div class="form-outline">
+       <label class="form-label" for="form6Example1">Discription</label>
+        <textarea id="mytextarea" name="description" placeholder="Enter hear" rows="15" class="form-control" ></textarea>
+      </div>
+    </div>
+		
+	</div>
+	</div> 
+  <!-- Submit button -->
+ <div class="text-center">
+  <button type="submit" class="btn btn-primary mb-4">Submit</button>
+ </div>
+</form>
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+       
+       <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+    
+    <script>
+	     
+      $(document).ready(() =>{
+    	  $(".item").removeClass("active");
+    	  $("#add_link").addClass("active");
+      });
+	
+	</script>
+    
+</section>
+</body>
+</html>
